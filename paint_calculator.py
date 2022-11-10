@@ -14,7 +14,9 @@ def myClick():
 '''
 def buttonClick(number):
 	#e.delete(0, END)
-	current = e.get() # get current stuff inputted
+	current = e.get(), walls_width.get(), walls_height.get() # get current stuff inputted
+	walls_width.delete(0, END)
+
 	e.delete(0, END)
 	e.insert(0, str(current) + str(number))
 
@@ -73,8 +75,19 @@ def buttonDivide():
 # e define entry box
 
 e = Entry(root, width=35, borderwidth = 5)
-walls_width = []
-walls_length = []
+
+#left walls
+walls_width_north = Entry(root, width=35, borderwidth = 5)
+walls_length_north = Entry(root, width=35, borderwidth = 5)
+
+walls_width_east = Entry(root, width=35, borderwidth = 5)
+walls_length_east = Entry(root, width=35, borderwidth = 5)
+
+walls_width_south = Entry(root, width=35, borderwidth = 5)
+walls_length_south = Entry(root, width=35, borderwidth = 5)
+
+walls_width_west = Entry(root, width=35, borderwidth = 5)
+walls_length_west = Entry(root, width=35, borderwidth = 5)
 
 # define buttons
 

@@ -14,20 +14,20 @@ def myClick():
 '''
 '''
 walls_width_north.delete(0, END)
-walls_length_north.delete(0, END)
+walls_height_north.delete(0, END)
 walls_width_east.delete(0, END)
-walls_length_east.delete(0, END)
+walls_height_east.delete(0, END)
 walls_width_south.delete(0, END)
-walls_length_south.delete(0, END)
+walls_height_south.delete(0, END)
 walls_width_west.delete(0, END)
-walls_length_west.delete(0, END)
+walls_height_west.delete(0, END)
 
 walls_width_north.get(), 
-walls_length_north.get(), 
-walls_width_east.get(), walls_length_east.get(),	
-walls_width_south.get(), walls_length_south.get(), 
+walls_height_north.get(), 
+walls_width_east.get(), walls_height_east.get(),	
+walls_width_south.get(), walls_height_south.get(), 
 walls_width_west.get(), 
-walls_length_west.get(),  # get current stuff inputted
+walls_height_west.get(),  # get current stuff inputted
 '''
 def buttonClick(number):
 	#e.delete(0, END)
@@ -92,21 +92,42 @@ def buttonDivide():
 
 # e define entry box
 
-e = Entry(root, width=35, borderwidth = 5)
+area_label=Label(root, text="Area of floor(metres)")
+e = Entry(root, width=35, borderwidth= 5) #area of floor
+
+paint_req_label= Label(root, text="Paint required (metres)")
+paint_req = Entry(root, width=35, borderwidth=5)
+
+vol_room_label= Label(root, text="Total volume of room (metres)")
+vol_room = Entry(root, width=35, borderwidth=5)
+
+
 
 #left walls
 #define variables
-walls_width_north = Entry(root, width=35, borderwidth = 5)
-walls_length_north = Entry(root, width=35, borderwidth = 5)
+north_width_label = Label(root, text="width of north wall")
+walls_width_north = Entry(root, width=10, borderwidth = 5)
 
-walls_width_east = Entry(root, width=35, borderwidth = 5)
-walls_length_east = Entry(root, width=35, borderwidth = 5)
+north_height_label = Label(root, text="height of north wall")
+walls_height_north = Entry(root, width=10, borderwidth = 5)
 
-walls_width_south = Entry(root, width=35, borderwidth = 5)
-walls_length_south = Entry(root, width=35, borderwidth = 5)
+east_width_label = Label(root, text="width of east wall")
+walls_width_east = Entry(root, width=10, borderwidth = 5)
 
-walls_width_west = Entry(root, width=35, borderwidth = 5)
-walls_length_west = Entry(root, width=35, borderwidth = 5)
+east_height_label = Label(root, text="height of east wall")
+walls_height_east = Entry(root, width=10, borderwidth = 5)
+
+south_width_label = Label(root, text="width of south wall")
+walls_width_south = Entry(root, width=10, borderwidth = 5)
+
+south_height_label = Label(root, text="height of south wall")
+walls_height_south = Entry(root, width=10, borderwidth = 5)
+
+west_width_label = Label(root, text="width of west wall")
+walls_width_west = Entry(root, width=10, borderwidth = 5)
+
+west_height_label = Label(root, text="height of west wall")
+walls_height_west = Entry(root, width=10, borderwidth = 5)
 
 # define entry boxes
 #walls_width_north =tk.Entry(self.panel2, validate = 'key', validatecommand = vcmd)
@@ -125,45 +146,72 @@ button6 = Button(root, text = "6", padx=40, pady=20, command=lambda: buttonClick
 button7 = Button(root, text = "7", padx=40, pady=20, command=lambda: buttonClick(7))
 button8 = Button(root, text = "8", padx=40, pady=20, command=lambda: buttonClick(8))
 '''
-button9 = Button(root, text = "9", padx=40, pady=20, command=lambda: buttonClick(9))
+#button9 = Button(root, text = "9", padx=40, pady=20, command=lambda: buttonClick(9))
 
-button0 = Button(root, text = "0", padx=138, pady=20, command=lambda: buttonClick(0))
+#button0 = Button(root, text = "0", padx=138, pady=20, command=lambda: buttonClick(0))
 buttonClear = Button(root, text = "Clear",padx=31,pady=20,command= buttonClear)
 
-buttonPlus = Button(root, text = "+", padx=39, pady=52, command= buttonPlus)
-buttonEquals = Button(root, text = "=", padx=39, pady=52, command= buttonEqual)
+#buttonPlus = Button(root, text = "+", padx=39, pady=52, command= buttonPlus)
+#buttonEquals = Button(root, text = "=", padx=39, pady=52, command= buttonEqual)
 
-buttonMinus = Button(root, text = "-", padx=39, pady=20, command= buttonMinus)
-buttonTimes = Button(root, text = "x", padx=39, pady=20, command= buttonTimes)
-buttonDivide = Button(root, text = "÷", padx=39, pady=20, command= buttonDivide)
+#buttonMinus = Button(root, text = "-", padx=39, pady=20, command= buttonMinus)
+#buttonTimes = Button(root, text = "x", padx=39, pady=20, command= buttonTimes)
+#buttonDivide = Button(root, text = "÷", padx=39, pady=20, command= buttonDivide)
 
 # put buttons on the screen
 
-e.grid(row = 0, column = 0, columnspan = 5, padx=10, pady=10)
+area_label.grid(row=0, column=0)
+e.grid(row = 0, column = 1, columnspan = 5, padx=10, pady=10) #area of floor
 
-buttonClear.grid(row = 1, column = 0)
-buttonDivide.grid(row = 1, column = 1)
-buttonTimes.grid(row = 1, column = 2)
-buttonMinus.grid(row = 1, column = 3)
+paint_req_label.grid(row=1, column=0)
+paint_req.grid(row = 1, column = 1, columnspan = 5, padx=10, pady=10)
 
-buttonPlus.grid(row = 2, column = 3, rowspan = 2)
-buttonEquals.grid(row = 4, column = 3, rowspan = 2)
+vol_room_label.grid(row=2, column=0)
+vol_room.grid(row = 2, column = 1, columnspan = 5, padx=10, pady=10)
+#height*width*depth
+#buttonClear.grid(row = 1, column = 1)
+'''
+buttonDivide.grid(row = 1, column = 2)
+buttonTimes.grid(row = 1, column = 3)
+buttonMinus.grid(row = 1, column = 4)
 
-walls_width_north.grid(row = 2, column = 2)
-walls_length_north.grid(row = 2, column = 1)
+buttonPlus.grid(row = 2, column = 4, rowspan = 2)
+buttonEquals.grid(row = 4, column = 4, rowspan = 2)
+'''
+north_width_label.grid(row= 3, column= 0)
+walls_width_north.grid(row = 3, column = 1)
 
-walls_width_east.grid(row = 2, column = 0)
-walls_length_east.grid(row = 3, column = 2)
+north_height_label.grid(row= 4,column= 0)
+walls_height_north.grid(row= 4, column= 1)
 
-walls_width_south.grid(row = 3, column = 1)
-walls_length_south.grid(row = 3, column = 0)
+east_width_label.grid(row= 3, column = 2)
+walls_width_east.grid(row= 3, column = 3)
 
-walls_width_west.grid(row = 4, column = 2)
-walls_length_west.grid(row = 4, column = 1)
+east_height_label.grid(row= 4, column= 2)
+walls_height_east.grid(row= 4, column= 3)
 
-button1.grid(row = 4, column = 0)
+south_width_label.grid(row= 5, column= 0)
+walls_width_south.grid(row= 5, column= 1)
 
-button0.grid(row = 5, column = 0, columnspan = 3)
+south_height_label.grid(row= 6, column= 0)
+walls_height_south.grid(row= 6, column = 1)
+
+west_width_label.grid(row= 5, column= 2)
+walls_width_west.grid(row= 5, column= 3)
+
+west_height_label.grid(row= 6, column= 2)
+walls_height_west.grid(row= 6, column= 3)
+
+#button1.grid(row = 4, column = 1)
+
+#button0.grid(row = 5, column = 1, columnspan = 3)
+
+
+
+
+
+
+
 
 
 root.mainloop()

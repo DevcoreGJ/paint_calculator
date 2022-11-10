@@ -3,7 +3,7 @@ from tkinter import *
 root = Tk()
 global errInvOp
 errInvOp = "Not a valid operator please choose from the buttons provided."
-root.title("Simple Calculator") # might not work come back later.
+root.title("Paint Calculator") # might not work come back later.
 
 #e.insert(0, "Enter your name") don't need an entry box text
 '''
@@ -12,10 +12,28 @@ def myClick():
 	myLabel = Label(root, text=hello)
 	myLabel.pack()
 '''
+'''
+walls_width_north.delete(0, END)
+walls_length_north.delete(0, END)
+walls_width_east.delete(0, END)
+walls_length_east.delete(0, END)
+walls_width_south.delete(0, END)
+walls_length_south.delete(0, END)
+walls_width_west.delete(0, END)
+walls_length_west.delete(0, END)
+
+walls_width_north.get(), 
+walls_length_north.get(), 
+walls_width_east.get(), walls_length_east.get(),	
+walls_width_south.get(), walls_length_south.get(), 
+walls_width_west.get(), 
+walls_length_west.get(),  # get current stuff inputted
+'''
 def buttonClick(number):
 	#e.delete(0, END)
-	current = e.get(), walls_width.get(), walls_height.get() # get current stuff inputted
-	walls_width.delete(0, END)
+	current = e.get()
+	
+	
 
 	e.delete(0, END)
 	e.insert(0, str(current) + str(number))
@@ -77,6 +95,7 @@ def buttonDivide():
 e = Entry(root, width=35, borderwidth = 5)
 
 #left walls
+#define variables
 walls_width_north = Entry(root, width=35, borderwidth = 5)
 walls_length_north = Entry(root, width=35, borderwidth = 5)
 
@@ -89,9 +108,13 @@ walls_length_south = Entry(root, width=35, borderwidth = 5)
 walls_width_west = Entry(root, width=35, borderwidth = 5)
 walls_length_west = Entry(root, width=35, borderwidth = 5)
 
+# define entry boxes
+#walls_width_north =tk.Entry(self.panel2, validate = 'key', validatecommand = vcmd)
+
 # define buttons
 
 button1 = Button(root, text = "1", padx=40, pady=20, command=lambda: buttonClick(1))
+'''
 button2 = Button(root, text = "2", padx=40, pady=20, command=lambda: buttonClick(2))
 button3 = Button(root, text = "3", padx=40, pady=20, command=lambda: buttonClick(3))
 
@@ -101,6 +124,7 @@ button6 = Button(root, text = "6", padx=40, pady=20, command=lambda: buttonClick
 
 button7 = Button(root, text = "7", padx=40, pady=20, command=lambda: buttonClick(7))
 button8 = Button(root, text = "8", padx=40, pady=20, command=lambda: buttonClick(8))
+'''
 button9 = Button(root, text = "9", padx=40, pady=20, command=lambda: buttonClick(9))
 
 button0 = Button(root, text = "0", padx=138, pady=20, command=lambda: buttonClick(0))
@@ -125,16 +149,18 @@ buttonMinus.grid(row = 1, column = 3)
 buttonPlus.grid(row = 2, column = 3, rowspan = 2)
 buttonEquals.grid(row = 4, column = 3, rowspan = 2)
 
-button9.grid(row = 2, column = 2)
-button8.grid(row = 2, column = 1)
-button7.grid(row = 2, column = 0)
+walls_width_north.grid(row = 2, column = 2)
+walls_length_north.grid(row = 2, column = 1)
 
-button6.grid(row = 3, column = 2)
-button5.grid(row = 3, column = 1)
-button4.grid(row = 3, column = 0)
+walls_width_east.grid(row = 2, column = 0)
+walls_length_east.grid(row = 3, column = 2)
 
-button3.grid(row = 4, column = 2)
-button2.grid(row = 4, column = 1)
+walls_width_south.grid(row = 3, column = 1)
+walls_length_south.grid(row = 3, column = 0)
+
+walls_width_west.grid(row = 4, column = 2)
+walls_length_west.grid(row = 4, column = 1)
+
 button1.grid(row = 4, column = 0)
 
 button0.grid(row = 5, column = 0, columnspan = 3)

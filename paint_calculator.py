@@ -14,11 +14,11 @@ class Paint_calculator(tk.Tk):
 		# basically prevents the use of anything but numbers
 
 		self.get_area = ttk.Button(self, text = "area =", padx=40, pady=20, command= self.return_area)
-		self.get_paint_req = ttk.Button(self, text = "paint req' =", padx=40, pady=20, command=lambda: buttonClick(1))
+		self.paint_req = ttk.Button(self, text = "paint ml/m2' =", padx=40, pady=20,command= self.return_paint)
 		self.get_vol = ttk.Button(self, text = "volume=", padx=40, pady=20, command= self.return_volume)
 
 		self.get_area.grid(row = 7, column = 0, columnspan = 1)
-		self.get_paint_req.grid(row = 7, column = 1, columnspan = 1)
+		self.paint_req.grid(row = 7, column = 1, columnspan = 1)
 		self.get_vol.grid(row = 7, column = 2, columnspan = 1)
 
 		self.walls_length = tk.StringVar()
@@ -38,6 +38,8 @@ class Paint_calculator(tk.Tk):
 		
 		self.area_val = tk.StringVar()
 		self.volume_val = tk.StringVar()
+		self.paint_val = tk.StringVar()
+		self.paint_req = tk.StringVar()
 
 
 		self.area_label= Label(self, text="Area of floor(metres)")
@@ -46,8 +48,8 @@ class Paint_calculator(tk.Tk):
 		self.perimeter_label= Label(self, text="Perimeter")
 		self.perimeter= Entry(self, textvariable=self.perimeter, width=10, borderwidth= 5, )
 		
-		self.paint_req_label= Label(self, text="Paint required (metres)")
-		self.paint_req = Entry(self, width=35, borderwidth=5)
+		self.paint_req_label= Label(self, text="Paint required ml/m^2")
+		self.paint_req = Entry(self, textvariable=self.paint_req, width=35, borderwidth=5)
 
 		self.vol_room_label= Label(self, text="Total volume of room (metres)")
 		self.vol_room = Entry(self,textvariable=self.volume, width=35, borderwidth=5)
@@ -126,6 +128,9 @@ class Paint_calculator(tk.Tk):
 		
 		self.vol_room.insert(0,float(self.volume_val))
 
+	def return_paint(self):
+		self.paint_val = ((float(self.walls_width.get())) * (float(self.walls_length.get())) * (float(self.walls_depth.get()))) - ((float(self.walls_width.get())))*50
+		self.paint_req.insert(0,float(self.paint_val))
 #self.mainloop()
 if __name__ == "__main__":
 	app = Paint_calculator()
